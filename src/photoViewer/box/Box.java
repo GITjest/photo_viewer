@@ -14,10 +14,10 @@ import photoViewer.panel.Panel;
 import java.io.File;
 
 public abstract class Box {
-    public static File selectedFile;
-    public static TreeItem<String> selectedItem;
-    public static String selectedImg;
-    public Stage window;
+    protected static File selectedFile;
+    protected static TreeItem<String> selectedItem;
+    protected static String selectedImg;
+    protected Stage window;
     private final String title;
 
     public Box(String title, Boolean setSelectedImg) {
@@ -26,7 +26,7 @@ public abstract class Box {
         selectedImg = Panel.imageIcons.getSelectedImageName();
 
         window = new Stage();
-        window.initModality(Modality.WINDOW_MODAL);
+        window.initModality(Modality.APPLICATION_MODAL);
         window.resizableProperty().setValue(Boolean.FALSE);
         window.setTitle(title);
         window.setMinWidth(400);

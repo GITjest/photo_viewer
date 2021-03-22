@@ -26,6 +26,7 @@ public class AddBox extends Box {
                         response.setErrorMessage(Error.NOT_CREATED, "Kategoria nie została dodana");
                         response.setHandlingResponse((r) -> Panel.categoryTree.refreshCatalog(Panel.categoryTree.getParentIndex(selectedItem), r));
                         Main.messageReceiver.sendMessage(new Message(RequestType.CREATE, Panel.categoryTree.getParentCatalogName(selectedItem) + "/" + category), response);
+                        window.close();
                     }
                 } else AlertBox.display("Kategoria o podanej nazwie istnieje!");
             } else setFileNameToSend(category, name);
@@ -46,6 +47,7 @@ public class AddBox extends Box {
                 response.setErrorMessage(Error.NOT_CREATED, "Zdjęcie nie zostało dodane");
                 response.setHandlingResponse((r) -> Panel.imageIcons.showIcons(path));
                 Main.messageReceiver.sendMessage(new Message(RequestType.CREATE, selectedFile, path + "/" + name), response);
+                window.close();
             }
         } else AlertBox.display("Zdjęcie o podanej nazwie istnieje!");
     }

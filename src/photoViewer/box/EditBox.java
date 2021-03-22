@@ -34,6 +34,7 @@ public class EditBox extends Box {
                             response.setHandlingResponse((r) -> Panel.imageIcons.showIcons(pathImage));
                             Main.messageReceiver.sendMessage(
                                     new Message(RequestType.UPDATE, new File(""), pathImage + "/" + selectedImg, pathImage + "/" + name), response);
+                            window.close();
                         }
                     } else AlertBox.display("Zdjęcie o podanej nazwie istnieje!");
                 } else {
@@ -49,6 +50,7 @@ public class EditBox extends Box {
                         response.setHandlingResponse((r) -> Panel.categoryTree.refreshCatalog(Panel.categoryTree.getParentIndex(selectedItem), r));
                         String catalogParent = Panel.categoryTree.getParentCatalogName(selectedItem);
                         Main.messageReceiver.sendMessage(new Message(RequestType.UPDATE, catalogParent + "/" + selectedItem.getValue(), catalogParent + "/" + category), response);
+                        window.close();
                     }
                 } else AlertBox.display("Kategoria o podanej nazwie istnieje!");
             }

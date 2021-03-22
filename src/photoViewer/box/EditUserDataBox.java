@@ -66,6 +66,7 @@ public class EditUserDataBox {
                     Panel.userPanel.setUserName(nick);
                 });
                 Main.messageReceiver.sendMessage(new Message(RequestType.UPDATE_ACCOUNT, Panel.userPanel.getUserName(), nick, oldPass, newPass), response);
+                window.close();
             } else AlertBox.display("Pole nicku nie może być puste!");
         } else AlertBox.display("Pole hasła nie może być puste!");
     }
